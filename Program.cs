@@ -5,13 +5,13 @@
         const int estudiantesTotales = 175;
         static int estudiantes = 0;
         static int year = 1;
-        static double cantidadAprobados = 0;
-        static double cantidadRepetidos = 0;
-        static double cantidadAbandonos = 0;
-        static double cantidadAprobadosTotal = 0;
-        static double cantidadRepetidosTotal = 0;
-        static double cantidadAbandonosTotal = 0;
-        static double cantidadEstudiantesTotal = 0;
+        static int cantidadAprobados = 0;
+        static int cantidadRepetidos = 0;
+        static int cantidadAbandonos = 0;
+        static int cantidadAprobadosTotal = 0;
+        static int cantidadRepetidosTotal = 0;
+        static int cantidadAbandonosTotal = 0;
+        static int cantidadEstudiantesTotal = 0;
 
         static Random random = new Random();
 
@@ -34,9 +34,9 @@
         }
 
         //Funcion para calcular la cantidad de estudiantes que pasan el año
-        static double Aprobados()
+        static int Aprobados()
         {
-            cantidadAprobados = estudiantes * RandomNumber(0.3, 0.5);
+            cantidadAprobados = (int)(estudiantes * RandomNumber(0.3, 0.5));
             estudiantes -= (int)cantidadAprobados;
             cantidadAprobadosTotal += cantidadAprobados;
             return cantidadAprobados;
@@ -45,7 +45,7 @@
         //Funcion para calcular la cantidad de estudiantes que repiten el año
         static double Repetidos()
         {
-            cantidadRepetidos = estudiantes * RandomNumber(0.1, 0.3);
+            cantidadRepetidos = (int)(estudiantes * RandomNumber(0.1, 0.3));
             estudiantes -= (int)cantidadRepetidos;
             cantidadRepetidosTotal += cantidadRepetidos;
             return cantidadRepetidos;
@@ -54,7 +54,7 @@
         //Funcion para calcular la cantidad de estudiantes que abandonan el año
         static double Abandonos()
         {
-            cantidadAbandonos = estudiantes * RandomNumber(0.1, 0.2);
+            cantidadAbandonos = (int)(estudiantes * RandomNumber(0.1, 0.2));
             estudiantes -= (int)cantidadAbandonos;
             cantidadAbandonosTotal += cantidadAbandonos;
             return cantidadAbandonos;
@@ -71,7 +71,7 @@
             Aprobados();
             Repetidos();
             Abandonos();
-            Console.WriteLine($"En el año {year} ingresaron {estudiantes:F2} estudiantes, de los cuales {cantidadAprobados:F2} aprobaron, {cantidadRepetidos:F2} repitieron y {cantidadAbandonos:F2} abandonaron");
+            Console.WriteLine($"En el año {year} ingresaron {estudiantes} estudiantes, de los cuales {cantidadAprobados} aprobaron, {cantidadRepetidos} repitieron y {cantidadAbandonos} abandonaron");
         }
 
         static void SimularAño()
@@ -85,7 +85,7 @@
         static void CalcularCantidadEstudiantesporAño()
         {
             double cantidadEstudiantesporAño = cantidadEstudiantesTotal / 5;
-            Console.WriteLine($"La cantidad de estudiantes que ingresaron por año fue: {cantidadEstudiantesporAño:F2}");
+            Console.WriteLine($"La cantidad de estudiantes que ingresaron por año fue: {cantidadEstudiantesporAño}");
         }
         static void SimularCarrera()
         {
@@ -93,8 +93,8 @@
             {
                 SimularAño();
             }
-            Console.WriteLine($"En total la cantidad de estudiantes que aprobaron fue: {cantidadAprobadosTotal:F2}, los repetidos: {cantidadRepetidosTotal:F2} y los que abandonaron: {cantidadAbandonosTotal:F2} ");
-            Console.WriteLine($"La cantidad de estudiantes que ingresaron a la carrera fue: {cantidadEstudiantesTotal:F2}");
+            Console.WriteLine($"En total la cantidad de estudiantes que aprobaron fue: {cantidadAprobadosTotal}, los repetidos: {cantidadRepetidosTotal} y los que abandonaron: {cantidadAbandonosTotal} ");
+            Console.WriteLine($"La cantidad de estudiantes que ingresaron a la carrera fue: {cantidadEstudiantesTotal}");
             CalcularCantidadEstudiantesporAño();
         }
 
@@ -111,7 +111,7 @@
                 cantidadAulas++;
             }
 
-            Console.WriteLine($"La cantidad de aulas que se necesitan es: {cantidadAulas:F2}");
+            Console.WriteLine($"La cantidad de aulas que se necesitan es: {cantidadAulas}");
             return cantidadAulas;
 
         }
